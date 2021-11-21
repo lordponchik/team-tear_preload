@@ -1,0 +1,135 @@
+body {
+  font-family: "Architects Daughter", cursive;
+  font-size: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+}
+
+.animation {
+  transform: translate(-50%, -50%);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+}
+.animation__title {
+  display: flex;
+  margin-top: -15px;
+  margin-left: -15px;
+}
+.animation__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  color: #131313;
+  background: #e7e5e4;
+  letter-spacing: 0.15em;
+  text-shadow: 4px 3px 0 #7a7a7a;
+
+  margin-top: 15px;
+  margin-left: 15px;
+
+  padding: 15px 0;
+
+  color: white;
+  -webkit-box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
+  box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+
+@media screen and (min-width: 768px) {
+  .animation__letter {
+    width: 60px;
+    font-size: 60px;
+    padding: 30px 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .animation__letter {
+    width: 100px;
+    font-size: 70px;
+  }
+}
+
+.animation__letter:nth-child(even):not(:nth-child(8)) {
+  transform: translateY(-200%);
+  animation: letter2n 4.5s cubic-bezier(0.23, 1, 0.32, 1) 1 forwards;
+}
+.animation__letter:nth-child(odd):not(:nth-child(9)) {
+  transform: translateY(200%);
+  animation: lettern 4.5s cubic-bezier(0.23, 1, 0.32, 1) 1 forwards;
+}
+.animation__letter:nth-child(8) {
+  transform: translateY(-200%);
+  animation: push 3s cubic-bezier(0.23, 1, 0.32, 1) 1 forwards;
+}
+.animation__letter:nth-child(9) {
+  transform: translateY(200%);
+  animation: fly 3s cubic-bezier(0.23, 1, 0.32, 1) 1 both;
+}
+
+@keyframes letter2n {
+  0% {
+    transform: translate(0, -200%);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50%, 0);
+  }
+}
+@keyframes lettern {
+  0% {
+    transform: translate(0, 200%);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50%, 0);
+  }
+}
+@keyframes push {
+  0% {
+    transform: translate(0, -200%) rotate(0);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0);
+  }
+  60% {
+    transform: translate(-15px, 0) rotate(0);
+  }
+  70% {
+    transform-origin: top left;
+    transform: translate(15px, 0) rotate(-10deg);
+  }
+  100% {
+    transform: translate(50%, 0) rotate(0);
+  }
+}
+@keyframes fly {
+  0% {
+    transform: translate(0, 200%) rotate(0);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0);
+  }
+  62% {
+    transform: translate(0, 0) rotate(0);
+  }
+  80% {
+    transform-origin: top left;
+    transform: translate(500%, 0) rotate(-360deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(500%, 0) rotate(-360deg);
+    opacity: 0;
+  }
+}
